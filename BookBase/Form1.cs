@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Net;
+using BookBase.Views;
 
 namespace BookBase
 {
@@ -29,6 +30,11 @@ namespace BookBase
             DisplayProducts(flowLayoutPanel1);
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // bookDetailsTab1.SendToBack();
+        }
+
         public void DisplayProducts(FlowLayoutPanel container)
         {
             foreach (Book book in books)
@@ -43,10 +49,11 @@ namespace BookBase
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     Dock = DockStyle.Top,
+                    Margin = new Padding(10),
                     Height = 175
                 };
 
-                ImageLoad(pictureBox, book);
+                libraryController.ImageLoad(pictureBox, book);
 
                 Label titleLabel = new Label
                 {
@@ -67,13 +74,14 @@ namespace BookBase
                     Height = 25
                 };
 
-                MaterialButton addToCartButton = new MaterialButton
+                MaterialButton viewButton = new MaterialButton
                 {
-                    Text = "Borrow",
+                    Text = "View book",
                     Dock = DockStyle.Bottom
                 };
+                viewButton.Click += (sender, e) => OpenDetailsForm(book.id);
 
-                cardPanel.Controls.Add(addToCartButton);
+                cardPanel.Controls.Add(viewButton);
                 cardPanel.Controls.Add(authorLabel);
                 cardPanel.Controls.Add(titleLabel);
                 cardPanel.Controls.Add(pictureBox);
@@ -81,25 +89,13 @@ namespace BookBase
                 container.Controls.Add(cardPanel);
             }
         }
-        
-        public async void ImageLoad(PictureBox pictureBox, Book book)
+
+        private void OpenDetailsForm(int id)
         {
-            using (WebClient client = new WebClient())
-            {
-                client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3");
-                try
-                {
-                    byte[] imageData = await client.DownloadDataTaskAsync(book.image_url);
-                    using (MemoryStream stream = new MemoryStream(imageData))
-                    {
-                        pictureBox.Image = Image.FromStream(stream);
-                    }
-                }
-                catch (WebException ex)
-                {
-                    MessageBox.Show($"Error loading image for {book.title}: {ex.Message}");
-                }
-            }
+            // Open a new form to display details of the selected book
+            bookDetailsTab1.bookId = id;
+            bookDetailsTab1.BringToFront();
+            bookDetailsTab1.Enabled = true;
         }
     }
 }
