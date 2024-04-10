@@ -36,7 +36,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.bookDetailForm1 = new BookBase.Views.BookDetailForm();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -105,15 +104,6 @@
             this.imageList1.Images.SetKeyName(0, "Libraryyy.png");
             this.imageList1.Images.SetKeyName(1, "Homeee.png");
             // 
-            // bookDetailForm1
-            // 
-            this.bookDetailForm1.bookId = 0;
-            this.bookDetailForm1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bookDetailForm1.Location = new System.Drawing.Point(0, 64);
-            this.bookDetailForm1.Name = "bookDetailForm1";
-            this.bookDetailForm1.Size = new System.Drawing.Size(582, 533);
-            this.bookDetailForm1.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,7 +111,6 @@
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(585, 600);
             this.Controls.Add(this.materialTabControl1);
-            this.Controls.Add(this.bookDetailForm1);
             this.DrawerIsOpen = true;
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
@@ -147,7 +136,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private Views.BookDetailForm bookDetailForm1;
     }
 }
 

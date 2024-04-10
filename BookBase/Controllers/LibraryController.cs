@@ -120,7 +120,7 @@ namespace BookBase.Controllers
                 }
                 catch (WebException ex)
                 {
-                    MessageBox.Show($"Error loading image for {book.title}: {ex.Message}");
+                    Console.WriteLine($"Error loading image for {book.title}: {ex.Message}");
                 }
             }
         }

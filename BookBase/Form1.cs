@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Net;
+using BookBase.Views;
+using MaterialSkin;
 
 namespace BookBase
 {
@@ -24,14 +26,17 @@ namespace BookBase
         public Form1()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+
             libraryController = new LibraryController(); // Instantiate LibraryController
             books = libraryController.GetAllBooks(); // Call GetAllBooks to get the list of books
-            DisplayProducts(flowLayoutPanel1);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // bookDetailsTab1.SendToBack();
+            DisplayProducts(flowLayoutPanel1);
         }
 
         public void DisplayProducts(FlowLayoutPanel container)
@@ -91,9 +96,11 @@ namespace BookBase
 
         private void OpenDetailsForm(int id)
         {
-            bookDetailForm1.bookId = id;
-            bookDetailForm1.BringToFront();
-            bookDetailForm1.Enabled = true;
+            this.Hide();
+
+            BookDetailForm bookDetailForm = new BookDetailForm();
+            bookDetailForm.bookId = id;
+            bookDetailForm.Show();
         }
     }
 }
