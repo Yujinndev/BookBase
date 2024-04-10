@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Net;
-using BookBase.Views;
 
 namespace BookBase
 {
@@ -92,10 +91,9 @@ namespace BookBase
 
         private void OpenDetailsForm(int id)
         {
-            // Open a new form to display details of the selected book
-            bookDetailsTab1.bookId = id;
-            bookDetailsTab1.BringToFront();
-            bookDetailsTab1.Enabled = true;
+            bookDetailForm1.bookId = id;
+            bookDetailForm1.BringToFront();
+            bookDetailForm1.Enabled = true;
         }
     }
 }

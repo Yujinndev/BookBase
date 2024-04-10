@@ -10,23 +10,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace BookBase.Views
 {
-    public partial class BookDetailsTab : UserControl
+    public partial class BookDetailForm : UserControl
     {
         private Book book;
         private LibraryController libraryController;
         public int bookId { get; set; }
 
-        public BookDetailsTab()
+        public BookDetailForm()
         {
             InitializeComponent();
-            libraryController = new LibraryController(); // Instantiate LibraryController
+            libraryController = new LibraryController();
         }
 
-        private void BookDetailsTab_EnabledChanged(object sender, EventArgs e)
+        private void BookDetailForm_EnabledChanged(object sender, EventArgs e)
         {
             book = libraryController.GetBookDetailsById(bookId);
 
