@@ -28,24 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.backBtn = new System.Windows.Forms.PictureBox();
             this.bookCard = new MaterialSkin.Controls.MaterialCard();
+            this.backBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.SuspendLayout();
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.backBtn.BackgroundImage = global::BookBase.Properties.Resources.Backkk;
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.backBtn.Location = new System.Drawing.Point(3, 24);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(39, 623);
-            this.backBtn.TabIndex = 0;
-            this.backBtn.TabStop = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // bookCard
             // 
@@ -62,10 +48,25 @@
             this.bookCard.Size = new System.Drawing.Size(540, 623);
             this.bookCard.TabIndex = 1;
             // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.GhostWhite;
+            this.backBtn.BackgroundImage = global::BookBase.Properties.Resources.Backkk;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backBtn.Location = new System.Drawing.Point(3, 24);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(39, 623);
+            this.backBtn.TabIndex = 0;
+            this.backBtn.TabStop = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // BookDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(585, 650);
             this.Controls.Add(this.bookCard);
             this.Controls.Add(this.backBtn);

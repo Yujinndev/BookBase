@@ -87,13 +87,14 @@ namespace BookBase.Views
             Button updateBtn = new Button
             {
                 Text = "Update details",
-                Font = new Font("Monaco", 12, FontStyle.Regular),
+                Font = new Font("Monaco", 12, FontStyle.Bold),
                 BackColor = Color.CornflowerBlue,
                 Size = new Size(20, 40),
                 FlatStyle = FlatStyle.Flat,
                 Dock = DockStyle.Bottom
             };
             updateBtn.FlatAppearance.BorderColor = Color.White;
+            updateBtn.Click += (sender, e) => OpenUpdateBookForm(book.id);
 
             Button delBtn = new Button
             {
@@ -106,6 +107,7 @@ namespace BookBase.Views
                 Dock = DockStyle.Bottom
             };
             delBtn.FlatAppearance.BorderColor = Color.White;
+            updateBtn.Click += (sender, e) => DeleteSelectedBook(book.id);
 
             bookCard.Controls.Add(pictureBox);
             bookCard.Controls.Add(titleLabel);
@@ -123,5 +125,16 @@ namespace BookBase.Views
             form1.materialTabControl1.SelectedTab = form1.materialTabControl1.TabPages["tabPage2"];
             form1.Show();
         }
+
+        private void OpenUpdateBookForm(int id)
+        {
+            // TODO: create update book form, plus the function/method to save it in database
+        }
+
+        private void DeleteSelectedBook()
+        {
+            // TODO: create a function in controller to delete a book in the database
+        }
     }
+}
 }

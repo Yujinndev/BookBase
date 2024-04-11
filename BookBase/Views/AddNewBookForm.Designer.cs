@@ -28,42 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.backBtn = new System.Windows.Forms.PictureBox();
+            this.resetBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.titleInput = new MaterialSkin.Controls.MaterialTextBox2();
             this.yearInput = new MaterialSkin.Controls.MaterialTextBox2();
             this.authorInput = new MaterialSkin.Controls.MaterialTextBox2();
             this.publisherInput = new MaterialSkin.Controls.MaterialTextBox2();
             this.shelfInput = new MaterialSkin.Controls.MaterialTextBox2();
             this.imageInput = new MaterialSkin.Controls.MaterialTextBox2();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.SuspendLayout();
             // 
-            // backBtn
+            // resetBtn
             // 
-            this.backBtn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.backBtn.BackgroundImage = global::BookBase.Properties.Resources.Backkk;
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.backBtn.Location = new System.Drawing.Point(3, 24);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(39, 623);
-            this.backBtn.TabIndex = 1;
-            this.backBtn.TabStop = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            this.resetBtn.BackColor = System.Drawing.Color.GhostWhite;
+            this.resetBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.resetBtn.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
+            this.resetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resetBtn.Font = new System.Drawing.Font("Monaco", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetBtn.Location = new System.Drawing.Point(42, 606);
+            this.resetBtn.Name = "resetBtn";
+            this.resetBtn.Size = new System.Drawing.Size(540, 41);
+            this.resetBtn.TabIndex = 9;
+            this.resetBtn.Text = "Reset Form";
+            this.resetBtn.UseVisualStyleBackColor = false;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.saveBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.saveBtn.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Monaco", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveBtn.Location = new System.Drawing.Point(42, 565);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(540, 41);
+            this.saveBtn.TabIndex = 10;
+            this.saveBtn.Text = "Save new book";
+            this.saveBtn.UseVisualStyleBackColor = false;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // titleInput
             // 
+            this.titleInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.titleInput.AnimateReadOnly = false;
             this.titleInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.titleInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.titleInput.Depth = 0;
-            this.titleInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.titleInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.titleInput.HelperText = "Title";
             this.titleInput.HideSelection = true;
             this.titleInput.LeadingIcon = null;
-            this.titleInput.Location = new System.Drawing.Point(42, 24);
+            this.titleInput.Location = new System.Drawing.Point(42, 261);
             this.titleInput.Margin = new System.Windows.Forms.Padding(10);
             this.titleInput.MaxLength = 32767;
             this.titleInput.MouseState = MaterialSkin.MouseState.OUT;
@@ -87,16 +109,18 @@
             // 
             // yearInput
             // 
+            this.yearInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.yearInput.AnimateReadOnly = false;
             this.yearInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.yearInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.yearInput.Depth = 0;
-            this.yearInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.yearInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.yearInput.HelperText = "Title";
+            this.yearInput.HelperText = "Year Published";
             this.yearInput.HideSelection = true;
             this.yearInput.LeadingIcon = null;
-            this.yearInput.Location = new System.Drawing.Point(42, 72);
+            this.yearInput.Location = new System.Drawing.Point(42, 414);
             this.yearInput.Margin = new System.Windows.Forms.Padding(10);
             this.yearInput.MaxLength = 32767;
             this.yearInput.MouseState = MaterialSkin.MouseState.OUT;
@@ -120,16 +144,18 @@
             // 
             // authorInput
             // 
+            this.authorInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.authorInput.AnimateReadOnly = false;
             this.authorInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.authorInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.authorInput.Depth = 0;
-            this.authorInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.authorInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.authorInput.HelperText = "Title";
+            this.authorInput.HelperText = "Author";
             this.authorInput.HideSelection = true;
             this.authorInput.LeadingIcon = null;
-            this.authorInput.Location = new System.Drawing.Point(42, 120);
+            this.authorInput.Location = new System.Drawing.Point(42, 312);
             this.authorInput.Margin = new System.Windows.Forms.Padding(10);
             this.authorInput.MaxLength = 32767;
             this.authorInput.MouseState = MaterialSkin.MouseState.OUT;
@@ -153,16 +179,18 @@
             // 
             // publisherInput
             // 
+            this.publisherInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.publisherInput.AnimateReadOnly = false;
             this.publisherInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.publisherInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.publisherInput.Depth = 0;
-            this.publisherInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.publisherInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.publisherInput.HelperText = "Title";
+            this.publisherInput.HelperText = "Publisher";
             this.publisherInput.HideSelection = true;
             this.publisherInput.LeadingIcon = null;
-            this.publisherInput.Location = new System.Drawing.Point(42, 168);
+            this.publisherInput.Location = new System.Drawing.Point(42, 363);
             this.publisherInput.Margin = new System.Windows.Forms.Padding(10);
             this.publisherInput.MaxLength = 32767;
             this.publisherInput.MouseState = MaterialSkin.MouseState.OUT;
@@ -186,16 +214,18 @@
             // 
             // shelfInput
             // 
+            this.shelfInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.shelfInput.AnimateReadOnly = false;
             this.shelfInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.shelfInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.shelfInput.Depth = 0;
-            this.shelfInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.shelfInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.shelfInput.HelperText = "Title";
+            this.shelfInput.HelperText = "Shelf Location";
             this.shelfInput.HideSelection = true;
             this.shelfInput.LeadingIcon = null;
-            this.shelfInput.Location = new System.Drawing.Point(42, 216);
+            this.shelfInput.Location = new System.Drawing.Point(42, 465);
             this.shelfInput.Margin = new System.Windows.Forms.Padding(10);
             this.shelfInput.MaxLength = 32767;
             this.shelfInput.MouseState = MaterialSkin.MouseState.OUT;
@@ -219,16 +249,18 @@
             // 
             // imageInput
             // 
+            this.imageInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.imageInput.AnimateReadOnly = false;
             this.imageInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.imageInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.imageInput.Depth = 0;
-            this.imageInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.imageInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.imageInput.HelperText = "Title";
+            this.imageInput.HelperText = "Image URI";
             this.imageInput.HideSelection = true;
             this.imageInput.LeadingIcon = null;
-            this.imageInput.Location = new System.Drawing.Point(42, 264);
+            this.imageInput.Location = new System.Drawing.Point(42, 516);
             this.imageInput.Margin = new System.Windows.Forms.Padding(10);
             this.imageInput.MaxLength = 32767;
             this.imageInput.MouseState = MaterialSkin.MouseState.OUT;
@@ -250,12 +282,40 @@
             this.imageInput.TrailingIcon = null;
             this.imageInput.UseSystemPasswordChar = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::BookBase.Properties.Resources.NewBook;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(42, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(540, 235);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.GhostWhite;
+            this.backBtn.BackgroundImage = global::BookBase.Properties.Resources.Backkk;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backBtn.Location = new System.Drawing.Point(3, 24);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(39, 623);
+            this.backBtn.TabIndex = 1;
+            this.backBtn.TabStop = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // AddNewBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(585, 650);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.resetBtn);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.imageInput);
             this.Controls.Add(this.shelfInput);
             this.Controls.Add(this.publisherInput);
@@ -271,6 +331,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewBookForm";
             this.Load += new System.EventHandler(this.AddNewBookForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.ResumeLayout(false);
 
@@ -279,6 +340,9 @@
         #endregion
 
         private System.Windows.Forms.PictureBox backBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button resetBtn;
+        private System.Windows.Forms.Button saveBtn;
         private MaterialSkin.Controls.MaterialTextBox2 titleInput;
         private MaterialSkin.Controls.MaterialTextBox2 yearInput;
         private MaterialSkin.Controls.MaterialTextBox2 authorInput;

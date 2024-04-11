@@ -82,7 +82,7 @@ namespace BookBase
                 Button viewButton = new Button
                 {
                     Text = "More details",
-                    Font = new Font("Monaco", 12, FontStyle.Regular),
+                    Font = new Font("Monaco", 11, FontStyle.Regular),
                     BackColor = Color.CornflowerBlue,
                     Size = new Size(20, 40),
                     FlatStyle = FlatStyle.Flat,

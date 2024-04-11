@@ -20,25 +20,31 @@ namespace BookBase.Views
 
         private void AddNewBookForm_Load(object sender, EventArgs e)
         {
-            string[] textFields = { "titleInput,Title", "authorInput,Author", "publisherInput,Publisher", "yearInput,Year Publisher", "shelfInput,Shelf Location", "imageInput,Image URI" };
-
-            foreach (string inputNameAndPlaceholder in textFields)
+            try
             {
-                string[] parts = inputNameAndPlaceholder.Split(',');
-                string inputName = parts[0];
-                string placeholder = parts[1];
+                string[] textFields = { "titleInput,Title", "authorInput,Author", "publisherInput,Publisher", "yearInput,Year Published", "shelfInput,Shelf Location", "imageInput,Image URI" };
 
-                MaterialTextBox2 input = this.Controls.Find(inputName, true).FirstOrDefault() as MaterialTextBox2;
+                foreach (string inputNameAndPlaceholder in textFields)
+                {
+                    string[] parts = inputNameAndPlaceholder.Split(',');
+                    string inputName = parts[0];
+                    string placeholder = parts[1];
 
-                if (input != null)
-                {
-                    input.Enter += (sndr, evnt) => inputOnEnter(input, placeholder);
-                    input.Leave += (sndr, evnt) => inputOnLeave(input, placeholder);
+                    MaterialTextBox2 input = this.Controls.Find(inputName, true).FirstOrDefault() as MaterialTextBox2;
+
+                    if (input != null)
+                    {
+                        input.Enter += (sndr, evnt) => inputOnEnter(input, placeholder);
+                        input.Leave += (sndr, evnt) => inputOnLeave(input, placeholder);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Control '{inputName}' not found.");
+                    }
                 }
-                else
-                {
-                    Console.WriteLine($"Control '{inputName}' not found.");
-                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex}");
             }
         }
 
@@ -65,6 +71,41 @@ namespace BookBase.Views
             form1.materialTabControl1.SelectedTab = form1.materialTabControl1.TabPages["tabPage2"];
             form1.Show();
         }
-        
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] textFields = { "titleInput,Title", "authorInput,Author", "publisherInput,Publisher", "yearInput,Year Published", "shelfInput,Shelf Location", "imageInput,Image URI" };
+
+                foreach (string inputNameAndPlaceholder in textFields)
+                {
+                    string[] parts = inputNameAndPlaceholder.Split(',');
+                    string inputName = parts[0];
+                    string placeholder = parts[1];
+
+                    MaterialTextBox2 input = this.Controls.Find(inputName, true).FirstOrDefault() as MaterialTextBox2;
+
+                    if (input != null)
+                    {
+                        input.Clear();
+                        input.Text = placeholder;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Control '{inputName}' not found.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex}");
+            }
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            // TODO: send input to controller and save to database.
+        }
     }
 }
