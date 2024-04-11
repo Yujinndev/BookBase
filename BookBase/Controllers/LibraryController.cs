@@ -44,6 +44,7 @@ namespace BookBase.Controllers
                         title = reader["title"].ToString(),
                         author = reader["author"].ToString(),
                         publisher = reader["publisher"].ToString(),
+                        shelf_location = reader["shelf_location"].ToString(),
                         year_published = Convert.ToInt32(reader["year_published"]),
                         image_url = reader["image_url"].ToString(),
                         added_at = reader["added_at"].ToString(),
@@ -81,11 +82,11 @@ namespace BookBase.Controllers
 
                 if (reader.Read())
                 {
-
                     book.id = Convert.ToInt32(reader["id"]);
                     book.title = reader["title"].ToString();
                     book.author = reader["author"].ToString();
                     book.publisher = reader["publisher"].ToString();
+                    book.shelf_location = reader["shelf_location"].ToString();
                     book.year_published = Convert.ToInt32(reader["year_published"]);
                     book.image_url = reader["image_url"].ToString();
                     book.added_at = reader["added_at"].ToString();

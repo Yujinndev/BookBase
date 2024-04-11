@@ -47,13 +47,14 @@
             this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialTabControl1.Font = new System.Drawing.Font("Monaco", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialTabControl1.ImageList = this.imageList1;
             this.materialTabControl1.Location = new System.Drawing.Point(0, 64);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(582, 533);
+            this.materialTabControl1.Size = new System.Drawing.Size(582, 583);
             this.materialTabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -64,7 +65,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 39);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(574, 490);
+            this.tabPage1.Size = new System.Drawing.Size(574, 540);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Home";
             // 
@@ -73,7 +74,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(568, 484);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(568, 534);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // tabPage2
@@ -84,7 +85,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 39);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(571, 490);
+            this.tabPage2.Size = new System.Drawing.Size(574, 490);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Library";
             // 
@@ -92,10 +93,11 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(565, 484);
-            this.flowLayoutPanel1.TabIndex = 3;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(568, 484);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // imageList1
             // 
@@ -109,13 +111,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(585, 600);
+            this.ClientSize = new System.Drawing.Size(585, 650);
             this.Controls.Add(this.materialTabControl1);
-            this.DrawerIsOpen = true;
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
             this.MaximumSize = new System.Drawing.Size(1085, 725);
-            this.MinimumSize = new System.Drawing.Size(585, 600);
+            this.MinimumSize = new System.Drawing.Size(585, 650);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(0, 64, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -130,12 +131,12 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
+        public MaterialSkin.Controls.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

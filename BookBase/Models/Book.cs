@@ -12,6 +12,7 @@ namespace BookBase.Models
         public string title { get; set; }
         public string author { get; set; }
         public string publisher { get; set; }
+        public string shelf_location { get; set; }
         public int year_published { get; set; }
         public string image_url { get; set; }
         public string added_at { get; set; }

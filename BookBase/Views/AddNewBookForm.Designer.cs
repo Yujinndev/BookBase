@@ -1,0 +1,289 @@
+﻿namespace BookBase.Views
+{
+    partial class AddNewBookForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.backBtn = new System.Windows.Forms.PictureBox();
+            this.titleInput = new MaterialSkin.Controls.MaterialTextBox2();
+            this.yearInput = new MaterialSkin.Controls.MaterialTextBox2();
+            this.authorInput = new MaterialSkin.Controls.MaterialTextBox2();
+            this.publisherInput = new MaterialSkin.Controls.MaterialTextBox2();
+            this.shelfInput = new MaterialSkin.Controls.MaterialTextBox2();
+            this.imageInput = new MaterialSkin.Controls.MaterialTextBox2();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.backBtn.BackgroundImage = global::BookBase.Properties.Resources.Backkk;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backBtn.Location = new System.Drawing.Point(3, 24);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(39, 623);
+            this.backBtn.TabIndex = 1;
+            this.backBtn.TabStop = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // titleInput
+            // 
+            this.titleInput.AnimateReadOnly = false;
+            this.titleInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.titleInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.titleInput.Depth = 0;
+            this.titleInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.titleInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.titleInput.HelperText = "Title";
+            this.titleInput.HideSelection = true;
+            this.titleInput.LeadingIcon = null;
+            this.titleInput.Location = new System.Drawing.Point(42, 24);
+            this.titleInput.Margin = new System.Windows.Forms.Padding(10);
+            this.titleInput.MaxLength = 32767;
+            this.titleInput.MouseState = MaterialSkin.MouseState.OUT;
+            this.titleInput.Name = "titleInput";
+            this.titleInput.Padding = new System.Windows.Forms.Padding(10);
+            this.titleInput.PasswordChar = '\0';
+            this.titleInput.PrefixSuffixText = null;
+            this.titleInput.ReadOnly = false;
+            this.titleInput.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.titleInput.SelectedText = "";
+            this.titleInput.SelectionLength = 0;
+            this.titleInput.SelectionStart = 0;
+            this.titleInput.ShortcutsEnabled = true;
+            this.titleInput.Size = new System.Drawing.Size(540, 48);
+            this.titleInput.TabIndex = 2;
+            this.titleInput.TabStop = false;
+            this.titleInput.Text = "Title";
+            this.titleInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.titleInput.TrailingIcon = null;
+            this.titleInput.UseSystemPasswordChar = false;
+            // 
+            // yearInput
+            // 
+            this.yearInput.AnimateReadOnly = false;
+            this.yearInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.yearInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.yearInput.Depth = 0;
+            this.yearInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.yearInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.yearInput.HelperText = "Title";
+            this.yearInput.HideSelection = true;
+            this.yearInput.LeadingIcon = null;
+            this.yearInput.Location = new System.Drawing.Point(42, 72);
+            this.yearInput.Margin = new System.Windows.Forms.Padding(10);
+            this.yearInput.MaxLength = 32767;
+            this.yearInput.MouseState = MaterialSkin.MouseState.OUT;
+            this.yearInput.Name = "yearInput";
+            this.yearInput.Padding = new System.Windows.Forms.Padding(10);
+            this.yearInput.PasswordChar = '\0';
+            this.yearInput.PrefixSuffixText = null;
+            this.yearInput.ReadOnly = false;
+            this.yearInput.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.yearInput.SelectedText = "";
+            this.yearInput.SelectionLength = 0;
+            this.yearInput.SelectionStart = 0;
+            this.yearInput.ShortcutsEnabled = true;
+            this.yearInput.Size = new System.Drawing.Size(540, 48);
+            this.yearInput.TabIndex = 3;
+            this.yearInput.TabStop = false;
+            this.yearInput.Text = "Year Published";
+            this.yearInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.yearInput.TrailingIcon = null;
+            this.yearInput.UseSystemPasswordChar = false;
+            // 
+            // authorInput
+            // 
+            this.authorInput.AnimateReadOnly = false;
+            this.authorInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.authorInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.authorInput.Depth = 0;
+            this.authorInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.authorInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.authorInput.HelperText = "Title";
+            this.authorInput.HideSelection = true;
+            this.authorInput.LeadingIcon = null;
+            this.authorInput.Location = new System.Drawing.Point(42, 120);
+            this.authorInput.Margin = new System.Windows.Forms.Padding(10);
+            this.authorInput.MaxLength = 32767;
+            this.authorInput.MouseState = MaterialSkin.MouseState.OUT;
+            this.authorInput.Name = "authorInput";
+            this.authorInput.Padding = new System.Windows.Forms.Padding(10);
+            this.authorInput.PasswordChar = '\0';
+            this.authorInput.PrefixSuffixText = null;
+            this.authorInput.ReadOnly = false;
+            this.authorInput.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.authorInput.SelectedText = "";
+            this.authorInput.SelectionLength = 0;
+            this.authorInput.SelectionStart = 0;
+            this.authorInput.ShortcutsEnabled = true;
+            this.authorInput.Size = new System.Drawing.Size(540, 48);
+            this.authorInput.TabIndex = 4;
+            this.authorInput.TabStop = false;
+            this.authorInput.Text = "Author";
+            this.authorInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.authorInput.TrailingIcon = null;
+            this.authorInput.UseSystemPasswordChar = false;
+            // 
+            // publisherInput
+            // 
+            this.publisherInput.AnimateReadOnly = false;
+            this.publisherInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.publisherInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.publisherInput.Depth = 0;
+            this.publisherInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.publisherInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.publisherInput.HelperText = "Title";
+            this.publisherInput.HideSelection = true;
+            this.publisherInput.LeadingIcon = null;
+            this.publisherInput.Location = new System.Drawing.Point(42, 168);
+            this.publisherInput.Margin = new System.Windows.Forms.Padding(10);
+            this.publisherInput.MaxLength = 32767;
+            this.publisherInput.MouseState = MaterialSkin.MouseState.OUT;
+            this.publisherInput.Name = "publisherInput";
+            this.publisherInput.Padding = new System.Windows.Forms.Padding(10);
+            this.publisherInput.PasswordChar = '\0';
+            this.publisherInput.PrefixSuffixText = null;
+            this.publisherInput.ReadOnly = false;
+            this.publisherInput.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.publisherInput.SelectedText = "";
+            this.publisherInput.SelectionLength = 0;
+            this.publisherInput.SelectionStart = 0;
+            this.publisherInput.ShortcutsEnabled = true;
+            this.publisherInput.Size = new System.Drawing.Size(540, 48);
+            this.publisherInput.TabIndex = 5;
+            this.publisherInput.TabStop = false;
+            this.publisherInput.Text = "Publisher";
+            this.publisherInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.publisherInput.TrailingIcon = null;
+            this.publisherInput.UseSystemPasswordChar = false;
+            // 
+            // shelfInput
+            // 
+            this.shelfInput.AnimateReadOnly = false;
+            this.shelfInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.shelfInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.shelfInput.Depth = 0;
+            this.shelfInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.shelfInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.shelfInput.HelperText = "Title";
+            this.shelfInput.HideSelection = true;
+            this.shelfInput.LeadingIcon = null;
+            this.shelfInput.Location = new System.Drawing.Point(42, 216);
+            this.shelfInput.Margin = new System.Windows.Forms.Padding(10);
+            this.shelfInput.MaxLength = 32767;
+            this.shelfInput.MouseState = MaterialSkin.MouseState.OUT;
+            this.shelfInput.Name = "shelfInput";
+            this.shelfInput.Padding = new System.Windows.Forms.Padding(10);
+            this.shelfInput.PasswordChar = '\0';
+            this.shelfInput.PrefixSuffixText = null;
+            this.shelfInput.ReadOnly = false;
+            this.shelfInput.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.shelfInput.SelectedText = "";
+            this.shelfInput.SelectionLength = 0;
+            this.shelfInput.SelectionStart = 0;
+            this.shelfInput.ShortcutsEnabled = true;
+            this.shelfInput.Size = new System.Drawing.Size(540, 48);
+            this.shelfInput.TabIndex = 6;
+            this.shelfInput.TabStop = false;
+            this.shelfInput.Text = "Shelf Location";
+            this.shelfInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.shelfInput.TrailingIcon = null;
+            this.shelfInput.UseSystemPasswordChar = false;
+            // 
+            // imageInput
+            // 
+            this.imageInput.AnimateReadOnly = false;
+            this.imageInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.imageInput.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.imageInput.Depth = 0;
+            this.imageInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.imageInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.imageInput.HelperText = "Title";
+            this.imageInput.HideSelection = true;
+            this.imageInput.LeadingIcon = null;
+            this.imageInput.Location = new System.Drawing.Point(42, 264);
+            this.imageInput.Margin = new System.Windows.Forms.Padding(10);
+            this.imageInput.MaxLength = 32767;
+            this.imageInput.MouseState = MaterialSkin.MouseState.OUT;
+            this.imageInput.Name = "imageInput";
+            this.imageInput.Padding = new System.Windows.Forms.Padding(10);
+            this.imageInput.PasswordChar = '\0';
+            this.imageInput.PrefixSuffixText = null;
+            this.imageInput.ReadOnly = false;
+            this.imageInput.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.imageInput.SelectedText = "";
+            this.imageInput.SelectionLength = 0;
+            this.imageInput.SelectionStart = 0;
+            this.imageInput.ShortcutsEnabled = true;
+            this.imageInput.Size = new System.Drawing.Size(540, 48);
+            this.imageInput.TabIndex = 7;
+            this.imageInput.TabStop = false;
+            this.imageInput.Text = "Image URI";
+            this.imageInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.imageInput.TrailingIcon = null;
+            this.imageInput.UseSystemPasswordChar = false;
+            // 
+            // AddNewBookForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(585, 650);
+            this.Controls.Add(this.imageInput);
+            this.Controls.Add(this.shelfInput);
+            this.Controls.Add(this.publisherInput);
+            this.Controls.Add(this.authorInput);
+            this.Controls.Add(this.yearInput);
+            this.Controls.Add(this.titleInput);
+            this.Controls.Add(this.backBtn);
+            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
+            this.MaximumSize = new System.Drawing.Size(1085, 725);
+            this.MinimumSize = new System.Drawing.Size(585, 650);
+            this.Name = "AddNewBookForm";
+            this.Padding = new System.Windows.Forms.Padding(3, 24, 3, 3);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "AddNewBookForm";
+            this.Load += new System.EventHandler(this.AddNewBookForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.PictureBox backBtn;
+        private MaterialSkin.Controls.MaterialTextBox2 titleInput;
+        private MaterialSkin.Controls.MaterialTextBox2 yearInput;
+        private MaterialSkin.Controls.MaterialTextBox2 authorInput;
+        private MaterialSkin.Controls.MaterialTextBox2 publisherInput;
+        private MaterialSkin.Controls.MaterialTextBox2 shelfInput;
+        private MaterialSkin.Controls.MaterialTextBox2 imageInput;
+    }
+}

@@ -33,6 +33,11 @@ namespace BookBase.Views
 
         private void BookDetailForm_Load(object sender, EventArgs e)
         {
+            DisplayBookDetails();
+        }
+
+        private void DisplayBookDetails()
+        {
             book = libraryController.GetBookDetailsById(bookId);
 
             bookCard.Controls.Clear();
@@ -52,38 +57,61 @@ namespace BookBase.Views
                 AutoSize = false,
                 Dock = DockStyle.Bottom,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Arial", 18, FontStyle.Bold),
-                Height = 40
+                Font = new Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold),
+                Height = 35
             };
             MaterialLabel authorLabel = new MaterialLabel
             {
-                Text = book.author,
+                Text = "By: " + book.author,
                 AutoSize = false,
                 Dock = DockStyle.Bottom,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Arial", 18, FontStyle.Bold),
-                Height = 40
+                Height = 30
+            };
+            MaterialLabel publishLabel = new MaterialLabel
+            {
+                Text = "Publisher: " + book.year_published + ", " + book.publisher,
+                AutoSize = false,
+                Dock = DockStyle.Bottom,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Height = 30
+            };
+            MaterialLabel locationLabel = new MaterialLabel
+            {
+                Text = "Where: " + book.shelf_location,
+                AutoSize = false,
+                Dock = DockStyle.Bottom,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Height = 30
             };
             Button updateBtn = new Button
             {
-                Text = "Update Book",
-                Font = new Font("Arial", 14, FontStyle.Bold),
-                Dock = DockStyle.Bottom,
-                BackColor = Color.DodgerBlue,
-                Size = new Size(20, 40)
+                Text = "Update details",
+                Font = new Font("Monaco", 12, FontStyle.Regular),
+                BackColor = Color.CornflowerBlue,
+                Size = new Size(20, 40),
+                FlatStyle = FlatStyle.Flat,
+                Dock = DockStyle.Bottom
             };
+            updateBtn.FlatAppearance.BorderColor = Color.White;
+
             Button delBtn = new Button
             {
                 Text = "Dispose Book",
-                Font = new Font("Arial", 12, FontStyle.Bold),
-                Dock = DockStyle.Bottom,
+                // Font = new Font(FontFamily.Families[55], 12, FontStyle.Regular),
+                Font = new Font("Monaco", 12, FontStyle.Regular),
                 BackColor = Color.IndianRed,
-                Size = new Size(20, 40)
+                Size = new Size(20, 40),
+                FlatStyle = FlatStyle.Flat,
+                Dock = DockStyle.Bottom
             };
+            delBtn.FlatAppearance.BorderColor = Color.White;
 
             bookCard.Controls.Add(pictureBox);
             bookCard.Controls.Add(titleLabel);
             bookCard.Controls.Add(authorLabel);
+            bookCard.Controls.Add(publishLabel);
+            bookCard.Controls.Add(locationLabel);
             bookCard.Controls.Add(updateBtn);
             bookCard.Controls.Add(delBtn);
         }
@@ -91,8 +119,8 @@ namespace BookBase.Views
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-
             Form1 form1 = new Form1();
+            form1.materialTabControl1.SelectedTab = form1.materialTabControl1.TabPages["tabPage2"];
             form1.Show();
         }
     }

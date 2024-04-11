@@ -42,35 +42,36 @@
             this.backBtn.Location = new System.Drawing.Point(3, 24);
             this.backBtn.Margin = new System.Windows.Forms.Padding(0);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(63, 573);
+            this.backBtn.Size = new System.Drawing.Size(39, 623);
             this.backBtn.TabIndex = 0;
             this.backBtn.TabStop = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // bookCard
             // 
+            this.bookCard.AutoScroll = true;
             this.bookCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bookCard.Depth = 0;
             this.bookCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bookCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bookCard.Location = new System.Drawing.Point(66, 24);
+            this.bookCard.Location = new System.Drawing.Point(42, 24);
             this.bookCard.Margin = new System.Windows.Forms.Padding(14);
             this.bookCard.MouseState = MaterialSkin.MouseState.HOVER;
             this.bookCard.Name = "bookCard";
             this.bookCard.Padding = new System.Windows.Forms.Padding(14);
-            this.bookCard.Size = new System.Drawing.Size(516, 573);
+            this.bookCard.Size = new System.Drawing.Size(540, 623);
             this.bookCard.TabIndex = 1;
             // 
             // BookDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 600);
+            this.ClientSize = new System.Drawing.Size(585, 650);
             this.Controls.Add(this.bookCard);
             this.Controls.Add(this.backBtn);
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.MaximumSize = new System.Drawing.Size(1085, 725);
-            this.MinimumSize = new System.Drawing.Size(585, 600);
+            this.MinimumSize = new System.Drawing.Size(585, 650);
             this.Name = "BookDetailForm";
             this.Padding = new System.Windows.Forms.Padding(3, 24, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

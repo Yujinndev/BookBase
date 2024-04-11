@@ -32,11 +32,12 @@ namespace BookBase
 
             libraryController = new LibraryController(); // Instantiate LibraryController
             books = libraryController.GetAllBooks(); // Call GetAllBooks to get the list of books
+            DisplayProducts(flowLayoutPanel1);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DisplayProducts(flowLayoutPanel1);
+            
         }
 
         public void DisplayProducts(FlowLayoutPanel container)
@@ -65,7 +66,7 @@ namespace BookBase
                     AutoSize = false,
                     Dock = DockStyle.Top,
                     TextAlign = ContentAlignment.MiddleCenter,
-                    Font = new Font("Arial", 12, FontStyle.Bold),
+                    Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
                     Height = 25
                 };
 
@@ -78,11 +79,16 @@ namespace BookBase
                     Height = 25
                 };
 
-                MaterialButton viewButton = new MaterialButton
+                Button viewButton = new Button
                 {
-                    Text = "View book",
+                    Text = "More details",
+                    Font = new Font("Monaco", 12, FontStyle.Regular),
+                    BackColor = Color.CornflowerBlue,
+                    Size = new Size(20, 40),
+                    FlatStyle = FlatStyle.Flat,
                     Dock = DockStyle.Bottom
                 };
+                viewButton.FlatAppearance.BorderColor = Color.White;
                 viewButton.Click += (sender, e) => OpenDetailsForm(book.id);
 
                 cardPanel.Controls.Add(viewButton);
@@ -92,15 +98,33 @@ namespace BookBase
 
                 container.Controls.Add(cardPanel);
             }
+
+            Button actionBtn = new Button
+            {
+                Text = "Add new",
+                FlatStyle = FlatStyle.System,
+                Size = new Size(150, 35),
+                Anchor = AnchorStyles.Right,
+                Margin = new Padding(8),
+            };
+            actionBtn.Click += (sender, e) => OpenAddBookForm();
+
+            container.Controls.Add(actionBtn);
         }
 
         private void OpenDetailsForm(int id)
         {
             this.Hide();
-
             BookDetailForm bookDetailForm = new BookDetailForm();
             bookDetailForm.bookId = id;
             bookDetailForm.Show();
+        }
+
+        private void OpenAddBookForm()
+        {
+            this.Hide();
+            AddNewBookForm newBookFrom = new AddNewBookForm();
+            newBookFrom.Show();
         }
     }
 }
