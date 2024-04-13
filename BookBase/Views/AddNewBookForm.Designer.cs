@@ -67,7 +67,7 @@
             this.saveBtn.Location = new System.Drawing.Point(42, 565);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(540, 41);
-            this.saveBtn.TabIndex = 10;
+            this.saveBtn.TabIndex = 8;
             this.saveBtn.Text = "Save new book";
             this.saveBtn.UseVisualStyleBackColor = false;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -135,7 +135,7 @@
             this.yearInput.SelectionStart = 0;
             this.yearInput.ShortcutsEnabled = true;
             this.yearInput.Size = new System.Drawing.Size(540, 48);
-            this.yearInput.TabIndex = 3;
+            this.yearInput.TabIndex = 5;
             this.yearInput.TabStop = false;
             this.yearInput.Text = "Year Published";
             this.yearInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -170,7 +170,7 @@
             this.authorInput.SelectionStart = 0;
             this.authorInput.ShortcutsEnabled = true;
             this.authorInput.Size = new System.Drawing.Size(540, 48);
-            this.authorInput.TabIndex = 4;
+            this.authorInput.TabIndex = 3;
             this.authorInput.TabStop = false;
             this.authorInput.Text = "Author";
             this.authorInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -205,7 +205,7 @@
             this.publisherInput.SelectionStart = 0;
             this.publisherInput.ShortcutsEnabled = true;
             this.publisherInput.Size = new System.Drawing.Size(540, 48);
-            this.publisherInput.TabIndex = 5;
+            this.publisherInput.TabIndex = 4;
             this.publisherInput.TabStop = false;
             this.publisherInput.Text = "Publisher";
             this.publisherInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -295,7 +295,7 @@
             // 
             // backBtn
             // 
-            this.backBtn.BackColor = System.Drawing.Color.GhostWhite;
+            this.backBtn.BackColor = System.Drawing.Color.White;
             this.backBtn.BackgroundImage = global::BookBase.Properties.Resources.Backkk;
             this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;

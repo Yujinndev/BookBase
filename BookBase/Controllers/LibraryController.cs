@@ -1,6 +1,7 @@
 ﻿using BookBase.Models;
 using BookBase.Utils;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -107,19 +108,86 @@ namespace BookBase.Controllers
             return book;
         }
 
-        public bool DeleteBook(int book_id)
+        public bool UpdateBook(int bookId, string title, string author, string publisher, int yearPublished, string shelfLocation, string image)
+        {
+            try
+            {
+                connection.Open();
+                string query = "UPDATE books SET title = @title, author = @author, publisher = @publisher, year_published = @yearPublished, shelf_location = @shelfLocation, image_url = @image WHERE id = @id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@title", title);
+                command.Parameters.AddWithValue("@author", author);
+                command.Parameters.AddWithValue("@publisher", publisher);
+                command.Parameters.AddWithValue("@yearPublished", yearPublished);
+                command.Parameters.AddWithValue("@shelfLocation", shelfLocation);
+                command.Parameters.AddWithValue("@image", image);
+                command.Parameters.AddWithValue("@id", bookId);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show($"Done updating book #{bookId}", "Process done!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error updating book: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public bool CreateNewBook(string title, string author, string publisher, int yearPublished, string shelfLocation, string image)
+        {
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO books (title, author, publisher, year_published, shelf_location, image_url) VALUES (@title, @author, @publisher, @yearPublished, @shelfLocation, @image)";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@title", title);
+                command.Parameters.AddWithValue("@author", author);
+                command.Parameters.AddWithValue("@publisher", publisher);
+                command.Parameters.AddWithValue("@yearPublished", yearPublished);
+                command.Parameters.AddWithValue("@shelfLocation", shelfLocation);
+                command.Parameters.AddWithValue("@image", image);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show($"New book was created successfully", "Process done!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error creating book: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public bool DeleteBook(int bookId)
         {
             try
             {
                 connection.Open();
                 string query = "DELETE FROM books WHERE id = @id";
                 MySqlCommand command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@id", book_id);
+                command.Parameters.AddWithValue("@id", bookId);
 
                 int rowsAffected = command.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
-                    MessageBox.Show($"Done deleting book #{book_id}", "Process done!", MessageBoxButtons.OK,
+                    MessageBox.Show($"Done deleting book #{bookId}", "Process done!", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }
                 return true;
@@ -135,14 +203,14 @@ namespace BookBase.Controllers
             }
         }
 
-        public async void ImageLoad(PictureBox pictureBox, Book book)
+        public async void ImageLoad(PictureBox pictureBox, string url)
         {
             using (WebClient client = new WebClient())
             {
                 client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3");
                 try
                 {
-                    byte[] imageData = await client.DownloadDataTaskAsync(book.image_url);
+                    byte[] imageData = await client.DownloadDataTaskAsync(url);
                     using (MemoryStream stream = new MemoryStream(imageData))
                     {
                         pictureBox.Image = Image.FromStream(stream);
@@ -150,7 +218,7 @@ namespace BookBase.Controllers
                 }
                 catch (WebException ex)
                 {
-                    Console.WriteLine($"Error loading image for {book.title}: {ex.Message}");
+                    Console.WriteLine($"Error loading image: {ex.Message}");
                 }
             }
         }

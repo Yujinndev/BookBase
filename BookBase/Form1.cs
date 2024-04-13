@@ -30,14 +30,13 @@ namespace BookBase
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
 
-            libraryController = new LibraryController(); // Instantiate LibraryController
-            books = libraryController.GetAllBooks(); // Call GetAllBooks to get the list of books
-            DisplayProducts(flowLayoutPanel1);
+            libraryController = new LibraryController();
+            books = libraryController.GetAllBooks();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            DisplayProducts(flowLayoutPanel1);
         }
 
         public void DisplayProducts(FlowLayoutPanel container)
@@ -46,7 +45,7 @@ namespace BookBase
             {
                 MaterialCard cardPanel = new MaterialCard
                 {
-                    Size = new Size(225, 300),
+                    Size = new Size(225, 325),
                     Margin = new Padding(10),
                 };
 
@@ -58,7 +57,7 @@ namespace BookBase
                     Height = 175
                 };
 
-                libraryController.ImageLoad(pictureBox, book);
+                libraryController.ImageLoad(pictureBox, book.image_url);
 
                 Label titleLabel = new Label
                 {
@@ -67,7 +66,7 @@ namespace BookBase
                     Dock = DockStyle.Top,
                     TextAlign = ContentAlignment.MiddleCenter,
                     Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
-                    Height = 25
+                    Height = 50
                 };
 
                 MaterialLabel authorLabel = new MaterialLabel
@@ -101,12 +100,15 @@ namespace BookBase
 
             Button actionBtn = new Button
             {
-                Text = "Add new",
-                FlatStyle = FlatStyle.System,
-                Size = new Size(150, 35),
+                FlatStyle = FlatStyle.Flat,
+                BackgroundImage = Properties.Resources.Add1,
+                BackgroundImageLayout = ImageLayout.Zoom,
+                Size = new Size(225, 325),
                 Anchor = AnchorStyles.Right,
                 Margin = new Padding(8),
+                BackColor = Color.White,
             };
+            actionBtn.FlatAppearance.BorderColor = Color.White;
             actionBtn.Click += (sender, e) => OpenAddBookForm();
 
             container.Controls.Add(actionBtn);

@@ -166,6 +166,12 @@
     <Compile Include="Views\Components\AlertBox.Designer.cs">
       <DependentUpon>AlertBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateBookForm.Designer.cs">
+      <DependentUpon>UpdateBookForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\AlertBox.resx">
       <DependentUpon>AlertBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UpdateBookForm.resx">
+      <DependentUpon>UpdateBookForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -210,6 +219,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NewBook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdateBook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

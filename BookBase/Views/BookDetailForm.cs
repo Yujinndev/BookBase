@@ -13,7 +13,6 @@ using BookBase.Models;
 using BookBase.Views.Components;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace BookBase.Views
 {
@@ -53,7 +52,7 @@ namespace BookBase.Views
                     Height = 375
                 };
 
-                libraryController.ImageLoad(pictureBox, book);
+                libraryController.ImageLoad(pictureBox, book.image_url);
 
                 Label titleLabel = new Label
                 {
@@ -124,7 +123,6 @@ namespace BookBase.Views
             {
                 Console.WriteLine($"Error: {ex}");
             }
-            
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -137,27 +135,35 @@ namespace BookBase.Views
 
         private void OpenUpdateBookForm(int id)
         {
-            // TODO: create update book form, plus the function/method to save it in database
+            this.Hide();
+            UpdateBookForm updateBook = new UpdateBookForm(id);
+            updateBook.ShowDialog();
         }
 
         private async void DeleteSelectedBook(int id)
         {
-            this.Hide();
-            AlertBox alert = new AlertBox(id);
-            alert.ShowDialog();
-
-            if (alert.result == false)
-            {
-                return;
-            }
-
-            bool isSuccess = await Task.Run(() => libraryController.DeleteBook(id));
-            if (isSuccess)
+            try
             {
                 this.Hide();
-                Form1 form1 = new Form1();
-                form1.materialTabControl1.SelectedTab = form1.materialTabControl1.TabPages["tabPage2"];
-                form1.Show();
+                AlertBox alert = new AlertBox(id);
+                alert.ShowDialog();
+
+                if (alert.result == false)
+                {
+                    return;
+                }
+
+                bool isSuccess = await Task.Run(() => libraryController.DeleteBook(id));
+                if (isSuccess)
+                {
+                    this.Hide();
+                    Form1 form1 = new Form1();
+                    form1.materialTabControl1.SelectedTab = form1.materialTabControl1.TabPages["tabPage2"];
+                    form1.Show();
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex}");
             }
         }
     }

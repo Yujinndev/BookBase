@@ -1,4 +1,6 @@
-﻿using MaterialSkin.Controls;
+﻿using BookBase.Controllers;
+using BookBase.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +10,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BookBase.Views
 {
     public partial class AddNewBookForm : MaterialForm
     {
+        private LibraryController libraryController;
+
         public AddNewBookForm()
         {
             InitializeComponent();
+            libraryController = new LibraryController();
         }
 
         private void AddNewBookForm_Load(object sender, EventArgs e)
@@ -48,7 +54,7 @@ namespace BookBase.Views
             }
         }
 
-        public void inputOnEnter(MaterialTextBox2 input, string placeholder)
+        private void inputOnEnter(MaterialTextBox2 input, string placeholder)
         {
             if (input.Text == placeholder)
             {
@@ -56,7 +62,7 @@ namespace BookBase.Views
             }
         }
 
-        public void inputOnLeave(MaterialTextBox2 input, string placeholder)
+        private void inputOnLeave(MaterialTextBox2 input, string placeholder)
         {
             if (input.TextLength == 0)
             {
@@ -64,12 +70,17 @@ namespace BookBase.Views
             }
         }
 
-        private void backBtn_Click(object sender, EventArgs e)
+        private void closeForm()
         {
             this.Hide();
             Form1 form1 = new Form1();
             form1.materialTabControl1.SelectedTab = form1.materialTabControl1.TabPages["tabPage2"];
             form1.Show();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            closeForm();
         }
 
         private void resetBtn_Click(object sender, EventArgs e)
@@ -99,9 +110,36 @@ namespace BookBase.Views
             }
         }
 
-        private void saveBtn_Click(object sender, EventArgs e)
+        private async void saveBtn_Click(object sender, EventArgs e)
         {
-            // TODO: send input to controller and save to database.
+            int year = int.TryParse(yearInput.Text, out year) ? year : 0;
+            string[] placeholders = { "Title", "Author", "Publisher", "Year Published", "Shelf Location", "Image URI" };
+            string[] currentValues = { titleInput.Text, authorInput.Text, publisherInput.Text, year.ToString(), shelfInput.Text, imageInput.Text };
+
+            for (int i = 0; i < placeholders.Length; i++)
+            {
+                string placeholder = placeholders[i];
+                string value = currentValues[i];
+
+                if (placeholder == value)
+                {
+                    MessageBox.Show($"Kindly fill out all inputs!", "Try Again!", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+
+            try
+            {
+                bool isSuccess = await Task.Run(() => libraryController.CreateNewBook(currentValues[0], currentValues[1], currentValues[2], year, currentValues[4], currentValues[5]));
+                if (isSuccess)
+                {
+                    closeForm();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex}");
+            }
         }
     }
 }

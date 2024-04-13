@@ -16,7 +16,7 @@ namespace BookBase.Views.Components
 {
     public partial class AlertBox : MaterialForm
     {
-        private int id;
+        private int bookId;
         private LibraryController libraryController;
 
         public bool result { get; set; }
@@ -26,7 +26,7 @@ namespace BookBase.Views.Components
         public AlertBox(int id)
         {
             InitializeComponent();
-            this.id = id;
+            this.bookId = id;
 
             libraryController = new LibraryController();
 
@@ -55,7 +55,7 @@ namespace BookBase.Views.Components
             this.Hide();
             BookDetailForm bookDetailForm = new BookDetailForm
             {
-                bookId = id,
+                bookId = bookId,
             };
             bookDetailForm.Show();
         }
@@ -79,7 +79,7 @@ namespace BookBase.Views.Components
                 return;
             }
 
-            if (passwordInput.Text != "PROGLANEXAM")
+            if (passwordInput.Text != "proglan")
             {
                 tryCount--;
 

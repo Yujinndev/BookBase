@@ -86,7 +86,6 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(568, 534);
@@ -98,6 +97,7 @@
             this.imageList1.TransparentColor = System.Drawing.Color.White;
             this.imageList1.Images.SetKeyName(0, "Libraryyy.png");
             this.imageList1.Images.SetKeyName(1, "Homeee.png");
+            this.imageList1.Images.SetKeyName(2, "AddIcon.png");
             // 
             // pictureBox1
             // 

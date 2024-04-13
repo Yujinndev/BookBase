@@ -16,6 +16,5 @@ namespace BookBase.Models
         public int year_published { get; set; }
         public string image_url { get; set; }
         public string added_at { get; set; }
-
     }
 }

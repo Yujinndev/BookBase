@@ -50,7 +50,7 @@
             // 
             // backBtn
             // 
-            this.backBtn.BackColor = System.Drawing.Color.GhostWhite;
+            this.backBtn.BackColor = System.Drawing.Color.White;
             this.backBtn.BackgroundImage = global::BookBase.Properties.Resources.Backkk;
             this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
