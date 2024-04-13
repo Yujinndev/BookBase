@@ -11,6 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace BookBase.Controllers
 {
@@ -104,6 +105,34 @@ namespace BookBase.Controllers
             }
 
             return book;
+        }
+
+        public bool DeleteBook(int book_id)
+        {
+            try
+            {
+                connection.Open();
+                string query = "DELETE FROM books WHERE id = @id";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@id", book_id);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show($"Done deleting book #{book_id}", "Process done!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error deleting book: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public async void ImageLoad(PictureBox pictureBox, Book book)
