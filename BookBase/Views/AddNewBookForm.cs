@@ -91,10 +91,6 @@ namespace BookBase.Views
                         input.Clear();
                         input.Text = placeholder;
                     }
-                    else
-                    {
-                        Console.WriteLine($"Control '{inputName}' not found.");
-                    }
                 }
             }
             catch (Exception ex)
