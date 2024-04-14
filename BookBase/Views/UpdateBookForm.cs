@@ -38,6 +38,9 @@ namespace BookBase.Views
                 string[] textFields = { "titleInput", "authorInput", "publisherInput", "yearInput", "shelfInput", "imageInput" };
                 string[] oldValues = { book.title, book.author, book.publisher, book.year_published.ToString(), book.shelf_location, book.image_url };
 
+                libraryController.ImageLoad(pictureBox1, book.image_url.Trim());
+
+
                 for (int i = 0; i < textFields.Length; i++)
                 {
                     string inputName = textFields[i];
@@ -68,6 +71,12 @@ namespace BookBase.Views
             {
                 input.Text = placeholder;
             }
+
+
+            if (input == imageInput)
+            {
+                libraryController.ImageLoad(pictureBox1, input.Text.Trim());
+            }
         }
 
         private void closeForm()
@@ -91,6 +100,8 @@ namespace BookBase.Views
             {
                 string[] textFields = { "titleInput", "authorInput", "publisherInput", "yearInput", "shelfInput", "imageInput" };
                 string[] oldValues = { book.title, book.author, book.publisher, book.year_published.ToString(), book.shelf_location, book.image_url };
+
+                libraryController.ImageLoad(pictureBox1, oldValues[5]);
 
                 for (int i = 0; i < textFields.Length; i++)
                 {
@@ -120,7 +131,6 @@ namespace BookBase.Views
         {
             try
             {
-                
                 string title = titleInput.Text;
                 string author = authorInput.Text;
                 string publisher = publisherInput.Text;

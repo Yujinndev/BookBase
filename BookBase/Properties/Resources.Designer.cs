@@ -143,6 +143,16 @@ namespace BookBase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PlaceholderImageee {
+            get {
+                object obj = ResourceManager.GetObject("PlaceholderImageee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UpdateBook {
             get {
                 object obj = ResourceManager.GetObject("UpdateBook", resourceCulture);

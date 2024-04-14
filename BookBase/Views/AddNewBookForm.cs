@@ -68,6 +68,18 @@ namespace BookBase.Views
             {
                 input.Text = placeholder;
             }
+
+            if (input == imageInput && input.Text == placeholder)
+            {
+                pictureBox1.Image = Properties.Resources.NewBook;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                return;
+            }
+
+            if (input == imageInput)
+            {
+                libraryController.ImageLoad(pictureBox1, input.Text.Trim());
+            }
         }
 
         private void closeForm()
@@ -87,6 +99,9 @@ namespace BookBase.Views
         {
             try
             {
+                pictureBox1.Image = Properties.Resources.NewBook;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
                 string[] textFields = { "titleInput,Title", "authorInput,Author", "publisherInput,Publisher", "yearInput,Year Published", "shelfInput,Shelf Location", "imageInput,Image URI" };
 
                 foreach (string inputNameAndPlaceholder in textFields)
@@ -103,6 +118,7 @@ namespace BookBase.Views
                         input.Text = placeholder;
                     }
                 }
+
             }
             catch (Exception ex)
             {

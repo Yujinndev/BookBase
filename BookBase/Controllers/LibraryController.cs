@@ -214,11 +214,14 @@ namespace BookBase.Controllers
                     using (MemoryStream stream = new MemoryStream(imageData))
                     {
                         pictureBox.Image = Image.FromStream(stream);
+                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
                 }
-                catch (WebException ex)
+                catch (Exception ex)
                 {
-                    Console.WriteLine($"Error loading image: {ex.Message}");
+                    Console.WriteLine($"Error: {ex.Message}");
+                    pictureBox.Image = Properties.Resources.PlaceholderImageee;
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
             }
         }
