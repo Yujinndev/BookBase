@@ -52,7 +52,7 @@
             this.resetBtn.Location = new System.Drawing.Point(42, 606);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(540, 41);
-            this.resetBtn.TabIndex = 19;
+            this.resetBtn.TabIndex = 1;
             this.resetBtn.Text = "Reset Form";
             this.resetBtn.UseVisualStyleBackColor = false;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
