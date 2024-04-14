@@ -1,6 +1,7 @@
 ﻿using BookBase.Controllers;
 using BookBase.Models;
 using BookBase.Views.Components;
+using Google.Protobuf.WellKnownTypes;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -91,7 +92,48 @@ namespace BookBase.Views
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            closeForm();
+            try
+            {
+                string[] textFields = { "titleInput", "authorInput", "publisherInput", "yearInput", "shelfInput", "imageInput" };
+                string[] oldValues = { book.title, book.author, book.publisher, book.year_published.ToString(), book.shelf_location, book.image_url };
+
+                libraryController.ImageLoad(pictureBox1, book.image_url.Trim());
+
+                bool isChanged = false;
+
+                for (int i = 0; i < textFields.Length; i++)
+                {
+                    string inputName = textFields[i];
+                    string value = oldValues[i];
+
+                    MaterialTextBox2 input = this.Controls.Find(inputName, true).FirstOrDefault() as MaterialTextBox2;
+                    if (input.Text != value)
+                    {
+                        isChanged = true;
+                    }
+                }
+
+                if (isChanged)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to go back?", "Progress will be canceled", MessageBoxButtons.OKCancel);
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        closeForm();
+                    } else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    closeForm();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex}");
+            }
         }
 
         private void resetBtn_Click(object sender, EventArgs e)

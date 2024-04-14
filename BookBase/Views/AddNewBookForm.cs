@@ -92,7 +92,48 @@ namespace BookBase.Views
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            closeForm();
+            try
+            {
+                string[] textFields = { "titleInput,Title", "authorInput,Author", "publisherInput,Publisher", "yearInput,Year Published", "shelfInput,Shelf Location", "imageInput,Image URI" };
+
+                bool isChanged = false;
+
+                foreach (string inputNameAndPlaceholder in textFields)
+                {
+                    string[] parts = inputNameAndPlaceholder.Split(',');
+                    string inputName = parts[0];
+                    string placeholder = parts[1];
+
+                    MaterialTextBox2 input = this.Controls.Find(inputName, true).FirstOrDefault() as MaterialTextBox2;
+
+                    if (input.Text != placeholder)
+                    {
+                        isChanged = true;
+                    }
+                }
+
+                if (isChanged)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to go back?", "Progress will be canceled", MessageBoxButtons.OKCancel);
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        closeForm();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    closeForm();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex}");
+            }
         }
 
         private void resetBtn_Click(object sender, EventArgs e)

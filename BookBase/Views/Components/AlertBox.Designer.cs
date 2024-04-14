@@ -59,12 +59,9 @@
             this.passwordInput.Size = new System.Drawing.Size(388, 48);
             this.passwordInput.TabIndex = 0;
             this.passwordInput.TabStop = false;
-            this.passwordInput.Text = "Password";
             this.passwordInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.passwordInput.TrailingIcon = null;
             this.passwordInput.UseSystemPasswordChar = true;
-            this.passwordInput.Enter += new System.EventHandler(this.passwordInput_Enter);
-            this.passwordInput.Leave += new System.EventHandler(this.passwordInput_Leave);
             // 
             // proceedBtn
             // 
@@ -108,7 +105,7 @@
             this.errorMsg.AutoSize = true;
             this.errorMsg.Font = new System.Drawing.Font("Monaco", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorMsg.ForeColor = System.Drawing.Color.IndianRed;
-            this.errorMsg.Location = new System.Drawing.Point(9, 123);
+            this.errorMsg.Location = new System.Drawing.Point(8, 123);
             this.errorMsg.Name = "errorMsg";
             this.errorMsg.Size = new System.Drawing.Size(0, 15);
             this.errorMsg.TabIndex = 5;

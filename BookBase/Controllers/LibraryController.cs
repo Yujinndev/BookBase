@@ -34,7 +34,7 @@ namespace BookBase.Controllers
             try
             {
                 connection.Open();
-                string query = "SELECT * FROM books";
+                string query = "SELECT * FROM books ORDER BY id desc";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
 
