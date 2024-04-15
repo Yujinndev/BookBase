@@ -68,6 +68,49 @@ namespace BookBase.Controllers
             }
         }
 
+        public List<Book> GetBooksWithFilter(string searchInput)
+        {
+            List<Book> books = new List<Book>();
+
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM books WHERE title LIKE @searchTerm OR author LIKE @searchTerm OR publisher LIKE @searchTerm OR year_published LIKE @searchTerm OR shelf_location LIKE @searchTerm ORDER BY id DESC";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchTerm", "%" + searchInput + "%");
+                MySqlDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    Book book = new Book
+                    {
+                        id = Convert.ToInt32(reader["id"]),
+                        title = reader["title"].ToString(),
+                        author = reader["author"].ToString(),
+                        publisher = reader["publisher"].ToString(),
+                        shelf_location = reader["shelf_location"].ToString(),
+                        year_published = Convert.ToInt32(reader["year_published"]),
+                        image_url = reader["image_url"].ToString(),
+                        added_at = reader["added_at"].ToString(),
+                    };
+                    books.Add(book);
+                }
+
+                reader.Close();
+                return books;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving books: " + ex.Message);
+                return new List<Book>();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public Book GetBookDetailsById(int book_id)
         {
             Book book = new Book();

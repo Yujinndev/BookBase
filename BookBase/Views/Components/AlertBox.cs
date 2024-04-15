@@ -73,7 +73,7 @@ namespace BookBase.Views.Components
 
                 if (dialog == DialogResult.OK)
                 {
-                    DisableButtonForDelay(90000); // 1 minute in milliseconds
+                    DisableButtonForDelay(10000);
                     closeForm();
                 }
 

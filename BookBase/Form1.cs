@@ -31,7 +31,6 @@ namespace BookBase
             materialSkinManager.AddFormToManage(this);
 
             libraryController = new LibraryController();
-            books = libraryController.GetAllBooks();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -41,61 +40,87 @@ namespace BookBase
 
         public void DisplayProducts(FlowLayoutPanel container)
         {
-            foreach (Book book in books)
+            container.Controls.Clear();
+            if (searchInput.TextLength > 0)
             {
-                MaterialCard cardPanel = new MaterialCard
-                {
-                    Size = new Size(225, 325),
-                    Margin = new Padding(10),
-                };
+                books = libraryController.GetBooksWithFilter(searchInput.Text);
+            } else
+            {
+                books = libraryController.GetAllBooks();
+            }
 
-                PictureBox pictureBox = new PictureBox
+            if (books != null && books.Count > 0)
+            {
+                foreach (Book book in books)
                 {
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                    Dock = DockStyle.Top,
-                    Margin = new Padding(10),
-                    Height = 175
-                };
+                    MaterialCard cardPanel = new MaterialCard
+                    {
+                        Size = new Size(225, 325),
+                        Margin = new Padding(10),
+                    };
 
-                libraryController.ImageLoad(pictureBox, book.image_url);
+                    PictureBox pictureBox = new PictureBox
+                    {
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Dock = DockStyle.Top,
+                        Margin = new Padding(10),
+                        Height = 175
+                    };
 
-                Label titleLabel = new Label
+                    libraryController.ImageLoad(pictureBox, book.image_url);
+
+                    Label titleLabel = new Label
+                    {
+                        Text = book.title,
+                        AutoSize = false,
+                        Dock = DockStyle.Top,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
+                        Height = 50
+                    };
+
+                    MaterialLabel authorLabel = new MaterialLabel
+                    {
+                        Text = book.author,
+                        AutoSize = false,
+                        Dock = DockStyle.Top,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Height = 25
+                    };
+
+                    Button viewButton = new Button
+                    {
+                        Text = "More details",
+                        Font = new Font("Monaco", 11, FontStyle.Regular),
+                        BackColor = Color.CornflowerBlue,
+                        Size = new Size(20, 40),
+                        FlatStyle = FlatStyle.Flat,
+                        Dock = DockStyle.Bottom
+                    };
+                    viewButton.FlatAppearance.BorderColor = Color.White;
+                    viewButton.Click += (sender, e) => OpenDetailsForm(book.id);
+
+                    cardPanel.Controls.Add(viewButton);
+                    cardPanel.Controls.Add(authorLabel);
+                    cardPanel.Controls.Add(titleLabel);
+                    cardPanel.Controls.Add(pictureBox);
+
+                    container.Controls.Add(cardPanel);
+                } 
+            } 
+            else
+            {
+                Label label = new Label
                 {
-                    Text = book.title,
-                    AutoSize = false,
-                    Dock = DockStyle.Top,
+                    Text = "No books found!",
                     TextAlign = ContentAlignment.MiddleCenter,
-                    Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
-                    Height = 50
-                };
-
-                MaterialLabel authorLabel = new MaterialLabel
-                {
-                    Text = book.author,
-                    AutoSize = false,
                     Dock = DockStyle.Top,
-                    TextAlign = ContentAlignment.MiddleCenter,
-                    Height = 25
+                    Anchor = AnchorStyles.Right & AnchorStyles.Left,
+                    Font = new Font(FontFamily.GenericSansSerif, 14, FontStyle.Bold),
+                    Size = new Size(200, 65),
                 };
 
-                Button viewButton = new Button
-                {
-                    Text = "More details",
-                    Font = new Font("Monaco", 11, FontStyle.Regular),
-                    BackColor = Color.CornflowerBlue,
-                    Size = new Size(20, 40),
-                    FlatStyle = FlatStyle.Flat,
-                    Dock = DockStyle.Bottom
-                };
-                viewButton.FlatAppearance.BorderColor = Color.White;
-                viewButton.Click += (sender, e) => OpenDetailsForm(book.id);
-
-                cardPanel.Controls.Add(viewButton);
-                cardPanel.Controls.Add(authorLabel);
-                cardPanel.Controls.Add(titleLabel);
-                cardPanel.Controls.Add(pictureBox);
-
-                container.Controls.Add(cardPanel);
+                container.Controls.Add(label);
             }
 
             Button actionBtn = new Button
@@ -110,8 +135,10 @@ namespace BookBase
             };
             actionBtn.FlatAppearance.BorderColor = Color.White;
             actionBtn.Click += (sender, e) => OpenAddBookForm();
-
-            container.Controls.Add(actionBtn);
+            if (searchInput.TextLength == 0)
+            {
+                container.Controls.Add(actionBtn);
+            }
         }
 
         private void OpenDetailsForm(int id)
@@ -127,6 +154,11 @@ namespace BookBase
             this.Hide();
             AddNewBookForm newBookFrom = new AddNewBookForm();
             newBookFrom.Show();
+        }
+
+        private void searchInput_TextChanged(object sender, EventArgs e)
+        {
+            DisplayProducts(flowLayoutPanel1);
         }
     }
 }
